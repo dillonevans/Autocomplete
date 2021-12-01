@@ -1,2 +1,2 @@
 # Autocomplete
-A simple implementation of an autocomplete algorithm using prefix tries
+A simple implementation of an autocomplete algorithm using prefix tries in C++
