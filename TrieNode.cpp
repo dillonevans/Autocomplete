@@ -6,7 +6,7 @@ TrieNode::TrieNode(std::string text) : children(ALPHABET_SIZE)
     this->isLeaf = true;
 }
 
-TrieNode* TrieNode::addChar(char c)
+TrieNode* TrieNode::addChar(const char &c)
 {
     int index = c - 'a';
     this->isLeaf = false;

@@ -5,7 +5,6 @@ Trie::Trie() : root{ new TrieNode("") } {}
 
 void Trie::insert(const std::string& word)
 {
-    int index = 0;
     TrieNode* node = (this->root);
     for (const char& c : word)
     {
@@ -15,13 +14,14 @@ void Trie::insert(const std::string& word)
 
 bool Trie::contains(const std::string& word)
 {
-    // This is shorthand return find(word) == nullptr;
+    // This is shorthand for return find(word) == nullptr;
     return find(word);
 }
 
-std::vector<std::string> Trie::getCompletions(const std::string& word)
+std::vector<std::string> Trie::getCompletions(const std::string& prefix)
 {
-    if (root = find(word))
+    // If the root could be found
+    if (root = find(prefix))
     {
         std::vector<std::string> suggestions;
         getCompletions(root, suggestions);
@@ -37,7 +37,6 @@ void Trie::getCompletions(TrieNode* root, std::vector<std::string>& suggestions)
 {
     if (!root) { return; }
     if (root->isLeaf) { suggestions.push_back(root->text); }
-
     for (const auto& node : root->children) { getCompletions(node, suggestions); }
 }
 

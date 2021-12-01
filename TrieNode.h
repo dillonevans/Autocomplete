@@ -10,7 +10,15 @@ class TrieNode
     friend class Trie;
 public:
     TrieNode(std::string text);
-    TrieNode* addChar(char c);
+
+    /**
+     * @brief Adds a child to the current node
+     * 
+     * @param c The character to add
+     * @return A pointer to the child node stored at the index
+     * corresponding to the
+     */
+    TrieNode* addChar(const char &c);
 
 private:
     std::vector<TrieNode*> children;
