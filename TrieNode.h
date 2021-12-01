@@ -7,13 +7,15 @@
 
 class TrieNode
 {
+    friend class Trie;
 public:
     TrieNode(std::string text);
     TrieNode* addChar(char c);
-    std::vector<TrieNode*> children;
-    std::string text;
 
 private:
+    std::vector<TrieNode*> children;
+    std::string text;
+    bool isLeaf;
 };
 
 #endif

@@ -1,15 +1,15 @@
 #include "TrieNode.h"
-#include <iostream>
 
 TrieNode::TrieNode(std::string text) : children(ALPHABET_SIZE)
 {
     this->text = text;
+    this->isLeaf = true;
 }
 
 TrieNode* TrieNode::addChar(char c)
 {
     int index = c - 'a';
-
+    this->isLeaf = false;
     if (!this->children[index])
     {
         TrieNode* child = new TrieNode(this->text + c);
